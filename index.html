@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>EBOOK - Fadia Kitchen</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/turn.js@4.1.1/turn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Amiri:wght@700&display=swap');
+        body { background-color: #111; font-family: 'Cairo', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+        #magazine { width: 1100px; height: 750px; box-shadow: 0 30px 60px rgba(0,0,0,0.8); }
+        .page { background-color: white; width: 550px; height: 750px; border-left: 1px solid #ddd; overflow: hidden; }
+        .page-content { padding: 50px; height: 100%; display: flex; flex-direction: column; position: relative; }
+        .recipe-img { width: 100%; height: 350px; object-fit: cover; border-radius: 4px; margin-bottom: 30px; }
+        .recipe-title { font-family: 'Amiri', serif; font-size: 3rem; color: #222; margin-bottom: 20px; border-bottom: 4px solid #d4af37; display: inline-block; }
+        .nav-btn { background: #d4af37; color: #000; padding: 12px 40px; border-radius: 5px; font-weight: bold; margin: 40px 10px; cursor: pointer; border: none; transition: 0.3s; }
+        .nav-btn:hover { background: #fff; transform: translateY(-3px); }
+        .cover-side { border-left: 15px solid #d4af37; }
+    </style>
+</head>
+<body>
+
+    <div id="magazine">
+        <div class="page cover-side flex flex-col items-center justify-center p-10">
+            <h1 class="text-7xl font-light tracking-tighter text-gray-900 mb-2">EBOOK</h1>
+            <p class="text-xl text-gray-600 mb-10 tracking-widest uppercase">appetizers | soups | salads</p>
+            <div class="w-24 h-1 bg-black mb-10"></div>
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" class="w-full h-80 object-cover shadow-xl">
+            <p class="mt-10 text-sm tracking-widest text-gray-400 uppercase">COOKBOOK</p>
+        </div>
+
+        <div class="page"><div class="page-content">
+            <h2 class="text-4xl font-bold mb-10 text-gray-800">المحتويات</h2>
+            <ul class="space-y-8 text-2xl text-gray-700">
+                <li class="flex justify-between border-b pb-4"><span>سلطة السيزر المنعشة</span> <span class="text-yellow-600">03</span></li>
+                <li class="flex justify-between border-b pb-4"><span>كبسة اللحم السعودية</span> <span class="text-yellow-600">05</span></li>
+                <li class="flex justify-between border-b pb-4"><span>أطباق جانبية</span> <span class="text-yellow-600">07</span></li>
+                <li class="flex justify-between border-b pb-4"><span>حلويات فاديا</span> <span class="text-yellow-600">09</span></li>
+            </ul>
+        </div></div>
+
+        <div class="page"><div class="page-content">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" class="recipe-img">
+            <h2 class="recipe-title">Caesar Salad</h2>
+            <p class="text-xl text-gray-600 italic">سلطة كلاسيكية بلمسة فاديا الخاصة.</p>
+        </div></div>
+        <div class="page"><div class="page-content">
+            <h3 class="text-2xl font-bold mb-6 text-yellow-700 underline">المكونات:</h3>
+            <p class="text-lg leading-loose text-gray-700">خس طازج، خبز محمص، جبنة بارميزان، صلصة السيزر المنزلية.</p>
+        </div></div>
+
+        <div class="page"><div class="page-content">
+            <img src="https://i.ibb.co/3ykG8m0/meat-dish.jpg" class="recipe-img">
+            <h2 class="recipe-title">اللحم بالأرز والبهارات</h2>
+            <p class="text-xl text-gray-600 italic">الطبق الرئيسي الملكي من مطبخ فاديا.</p>
+        </div></div>
+        <div class="page"><div class="page-content">
+            <h3 class="text-2xl font-bold mb-6 text-yellow-700 underline">طريقة التحضير:</h3>
+            <p class="text-lg leading-loose text-gray-700">يُطهى اللحم مع مزيج البهارات السعودية الأصلية ويُقدم فوق طبقة من الأرز العطري.</p>
+        </div></div>
+
+        <div class="page"><div class="page-content"><img src="https://images.unsplash.com/photo-1512058560566-42724afbc2db?w=500" class="recipe-img"><h2 class="recipe-title">أرز بخاري</h2></div></div>
+        <div class="page"><div class="page-content"><h3 class="text-2xl font-bold mb-6 text-yellow-700 underline">النكهة الأصلية:</h3><p class="text-lg text-gray-700">يتميز بالجزر والزبيب والمذاق المدخن.</p></div></div>
+
+        <div class="page"><div class="page-content"><h2 class="text-4xl font-bold mb-10 text-gray-800">نهاية الرحلة</h2><p class="text-xl text-gray-600">نتمنى أن تكون هذه الوصفات قد نالت إعجابكم.</p></div></div>
+        <div class="page bg-black text-white flex flex-col items-center justify-center p-12 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-yellow-500">شكراً لمتابعتكم</h2>
+            <p class="text-xl mb-4">Chef Fadia</p>
+            <div class="w-16 h-1 bg-yellow-500 mt-6"></div>
+        </div>
+    </div>
+
+    <div>
+        <button class="nav-btn" onclick="$('#magazine').turn('previous')">PREVIOUS</button>
+        <button class="nav-btn" onclick="$('#magazine').turn('next')">NEXT PAGE</button>
+    </div>
+
+    <script>
+        $(window).ready(function() {
+            $('#magazine').turn({
+                width: 1100, height: 750, autoCenter: true, direction: 'rtl', duration: 1500
+            });
+        });
+    </script>
+</body>
+</html>
