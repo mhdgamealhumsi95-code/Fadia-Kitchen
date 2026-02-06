@@ -2,70 +2,127 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>كتاب الشيف فاديا التفاعلي</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كتاب طبخ الشيف فاديا</title>
+    
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/blasten/turn.js/turn.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-        body { background: #1a1a1a; font-family: 'Cairo', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Amiri:wght@700&display=swap');
         
-        /* حاوية الكتاب - ضروري جداً لعدم ظهور الصفحات تحت بعض */
-        #magazine-viewport { width: 1100px; height: 750px; margin: 20px auto; position: relative; }
-        #magazine { width: 1100px; height: 750px; }
-        
-        .page { background-color: white; width: 550px; height: 750px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1); }
-        .page img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .nav-btn { background: #d4af37; color: black; padding: 12px 30px; border-radius: 5px; font-weight: bold; margin: 20px 10px; cursor: pointer; border: none; }
-        .nav-btn:hover { background: white; }
+        body { 
+            background: radial-gradient(circle, #2c2c2c 0%, #000000 100%); 
+            font-family: 'Cairo', sans-serif; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            min-height: 100vh; margin: 0; overflow-x: hidden;
+        }
+
+        /* حاوية الكتاب */
+        #viewport {
+            width: 1000px;
+            height: 600px;
+            margin: 20px auto;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        #flipbook {
+            width: 1000px;
+            height: 600px;
+        }
+
+        .page {
+            width: 500px;
+            height: 600px;
+            background-color: white;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .page img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* أزرار التحكم */
+        .controls { margin-top: 30px; display: flex; gap: 15px; }
+        .nav-btn {
+            background: #d4af37; color: black; padding: 10px 25px; 
+            border-radius: 5px; font-weight: bold; cursor: pointer; border: none; transition: 0.3s;
+        }
+        .nav-btn:hover { background: white; transform: translateY(-3px); }
     </style>
 </head>
 <body>
 
-    <div id="magazine-viewport">
-        <div id="magazine">
-            <div><img src="https://i.ibb.co/3ykG8m0/meat-dish.jpg" alt="الغلاف"></div>
+    <h2 class="text-white text-2xl mb-6 font-bold">📖 نموذج كتاب الطبخ التفاعلي - الشيف فاديا</h2>
+
+    <div id="viewport">
+        <div id="flipbook">
+            <div class="hard"><img src="https://i.ibb.co/3ykG8m0/meat-dish.jpg" alt="الغلاف"></div>
+            
             <div class="p-10">
-                <h2 class="text-3xl font-bold mb-6 border-b-2 border-yellow-600 pb-2">الفهرس</h2>
-                <ul class="space-y-4 text-xl">
-                    <li>1. كبسة فاديا الخاصة - ص 3</li>
-                    <li>2. أطباق جانبية - ص 5</li>
-                    <li>3. مقبلات - ص 7</li>
-                    <li>4. حلويات - ص 9</li>
+                <h3 class="text-2xl font-bold border-b-2 border-yellow-600 mb-6">قائمة الوصفات</h3>
+                <ul class="space-y-4">
+                    <li>1. كبسة فاديا - ص 3</li>
+                    <li>2. سلطة السيزر - ص 5</li>
+                    <li>3. أطباق اللحوم - ص 7</li>
+                    <li>4. حلويات شرقية - ص 9</li>
                 </ul>
             </div>
-            <div><img src="https://i.ibb.co/3ykG8m0/meat-dish.jpg"></div>
-            <div class="p-10 bg-gray-50">
-                <h2 class="text-3xl font-bold text-yellow-700 mb-4 uppercase">الطبق السعودي</h2>
-                <p class="text-lg leading-loose">وصفة اللحم بالأرز البسمتي والمكسرات، محضرة ببهارات فاديا السرية.</p>
+
+            <div><img src="https://i.ibb.co/3ykG8m0/meat-dish.jpg" alt="وصفة اللحم"></div>
+            <div class="p-10 bg-gray-50 flex flex-col justify-center">
+                <h2 class="font-serif text-4xl text-yellow-700 mb-4">الكبسة السعودية</h2>
+                <p class="text-lg leading-relaxed text-gray-700">تعتبر الكبسة من أهم الأطباق التي يقدمها مطبخ فاديا، حيث نستخدم أجود أنواع اللحم والبهارات الأصلية.</p>
             </div>
-            <div><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600"></div>
-            <div class="p-10"><h3>سلطة سيزر</h3></div>
+
+            <div><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600" alt="سلطة"></div>
+            <div class="p-10 flex flex-col justify-center">
+                <h2 class="text-3xl font-bold mb-4">سلطات منعشة</h2>
+                <p>مجموعة من السلطات المختارة التي تفتح الشهية وتزين المائدة.</p>
+            </div>
+
             <div><img src="https://images.unsplash.com/photo-1512058560566-42724afbc2db?w=600"></div>
-            <div class="p-10"><h3>أرز بخاري</h3></div>
-            <div><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600"></div>
-            <div class="bg-black text-white flex items-center justify-center"><h2>شكر لثقتكم بمطبخ فاديا</h2></div>
+            <div class="p-10"><h3>أرز بخاري مدخن</h3><p>طعم لا يقاوم لمحبي الأرز البخاري.</p></div>
+
+            <div class="p-10 flex flex-col items-center justify-center text-center">
+                <h2 class="text-2xl font-bold text-yellow-700 mb-4">نهاية الرحلة</h2>
+                <p>نتمنى أن تنال هذه الوصفات إعجابكم.</p>
+            </div>
+            <div class="hard bg-black text-white flex items-center justify-center">
+                <p class="text-xl font-bold tracking-widest uppercase">Chef Fadia Kitchen</p>
+            </div>
         </div>
     </div>
 
     <div class="controls">
-        <button class="nav-btn" onclick="$('#magazine').turn('previous')">السابق</button>
-        <button class="nav-btn" onclick="$('#magazine').turn('next')">التالي</button>
+        <button class="nav-btn" onclick="$('#flipbook').turn('previous')">السابق</button>
+        <button class="nav-btn" onclick="$('#flipbook').turn('next')">التالي</button>
     </div>
 
     <script>
         $(window).ready(function() {
-            // أهم سطر لضمان عدم ظهور الصفحات تحت بعض
-            $('#magazine').turn({
-                width: 1100,
-                height: 750,
+            $('#flipbook').turn({
+                width: 1000,
+                height: 600,
                 autoCenter: true,
-                direction: 'rtl',
-                display: 'double' // يظهر صفحتين بجانب بعض دائماً
+                direction: 'rtl', // اتجاه عربي
+                display: 'double', // عرض صفحتين دائماً
+                duration: 1200,    // سرعة قلب الورقة
+                acceleration: true,
+                gradients: true,
+                elevation: 50
             });
         });
+
+        // دعم مفاتيح الأسهم
+        $(window).bind('keydown', function(e){
+            if (e.keyCode == 37) $('#flipbook').turn('next');
+            else if (e.keyCode == 39) $('#flipbook').turn('previous');
+        });
     </script>
+
 </body>
 </html>
